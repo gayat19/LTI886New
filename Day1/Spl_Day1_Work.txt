@@ -1,0 +1,122 @@
+DOS
+cloud
+AI - > Stops responding
+
+Roles
+  Developer
+  Support
+  Tester
+  Manager
+  MktManager
+  QualityAnlyst
+  Designer
+  Teal Leads
+  Proj Mgr
+  HR Staffing Account
+  Srum Master
+  Bss Anlyst
+  Srct Anlyst
+  Network Admin
+  finance
+  Tech Consult
+  Arch
+  Database Admin
+  Database Programmer
+  Test eng
+  Test mamager
+  Deployment Spl
+  Deployment Manager
+  Tech Anlyst
+  Service engg
+  UI developer
+  Sales Team
+  System Admin
+  Server Admin
+  Cloud engg
+  Application Engg
+  Market/resarch anlyst
+
+Developer Team - Agile - more changes
+Operation Team - Stable - less change
+
+DevOps
+
+Process
+Requirements - Plan
+design
+Development - coding- Impl
+Testing
+Debugging
+Deployment
+Maintanence
+
+Waterfall
+Requirements - Plan-> design->Development - coding- Impl ->Testing->Debugging->Deployment->Maintanence
+
+Agile
+Epic - Whole req
+Stories - parts of epic
+every story - waterfall - 
+for every sprint 
+Requirements - Plan-> design->Development - coding- Impl ->Testing->Debugging->Deployment
+
+CI/CD
+
+Version control
+CI - Continous Integration
+CT - Cont. Testing
+CD - Cont. Deployment
+
+
+design - 
+Development  
+  Code- Git /SVN /TFS /Jira/
+  Build - Maven /Gradle/Jenkins/Azure
+  Testing - jUnit/nUnit/Selenium
+Operation
+   Deployment - Docker/Puppet/Chef/ Ansible/SaltStack/Jenkins/Azure
+   Monitor - Nagios/ELK 
+
+Version control - 
+   Centralized
+   Distributed
+
+In cmd Prompt
+Get the get version
+git --version
+
+To create a local repo
+Open cmd prompt in the location
+git init
+
+To see info on untracked and tracked files
+git status
+
+To add a file for tracking/staging
+git add <filename>
+eg:- git add File1.txt
+
+To config the author
+git config --global user.eamil "<yourLTIEmail>"
+
+To commit the file 
+git commit <filename> -m "First commit by G3"
+git commit File1.txt -m "First commit by G3"
+
+To view all the commits
+git log
+
+
+To link the remote repo
+git remote add origin <repolink>
+example - git remote add origin https://github.com/gayat19/get886learngit.git
+
+to push the files from local to remote repo
+git push origin master
+
+
+
+
+
+
+  
