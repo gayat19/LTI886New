@@ -1,0 +1,4 @@
+Create a folder with name MyProject
+add a HTML file that shows hello world
+
+stage, commit and push it to a new remote repo
