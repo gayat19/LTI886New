@@ -1,0 +1,26 @@
+Create a new folder somewhere fresh
+
+Create a new remote repo with name "Day2Question"
+
+Create a local repo
+
+create a new C# project that will print all the prime numbers within a given min and max number
+
+Checkin the project from local to the remote
+
+Allow the partner from morning to colab with u in the current remote repo
+Ask the friend to add the final print statement with their name in teh program class
+
+then pull from the repo
+
+Create a branch with name newtry
+
+Add a text file with name "testcode" in the branch which will have the sample input and output for the code
+
+Create a branch in remote repo with the same name "newtry"
+
+push the local to the remote repo
+
+finally merge the newtry with the master
+
+change the testcode file from the "newtry" branch locally and then push to the remote "newtry"

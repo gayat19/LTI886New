@@ -1,0 +1,83 @@
+To stage all the files in a dir
+git add -A
+
+edit the file in git hub
+commit it(in git hub)
+
+edit the file in local repo
+stage and commit it
+
+try to push-> you will get an error
+
+Try to pull
+u will get the conflict
+
+edit the file to resolve conflict
+
+add and commit it
+
+pull then push
+
+To remove the remote ref
+git remote remove origin
+
+
+Trying to pull new changes
+git pull origin master
+
+change in git
+add a class in remote reppo
+add a class in local proj
+
+pull and push
+
+all methods will  be available
+
+
+init, remote add and pull
+git clone <repo link>
+git clone https://github.com/gayat19/Day2GitLearn.git
+[12:09 PM] Appali Lasya
+    
+branches
+
+Application
+  Maint
+  Feature
+
+
+To create a new Branch
+git branch <branchname>
+git branch bugfix
+
+To list all the branches
+git branch
+
+
+To go to another branch
+>git checkout <branchname>
+git checkout bugfix
+
+
+create a file
+git add .
+git commit -m "from bug fix"
+
+git checkout master
+--you will find the file is not present
+
+git push origin master
+-- will push only old files
+-- new file is reserved for the new branch
+
+
+To list all the files in the current branch
+>git ls-files
+
+Create a new remote branch
+
+Go to the branch where you want the merge to happen
+git merge <otherbranch>
+eg:
+git checkout master
+git merge bugfix

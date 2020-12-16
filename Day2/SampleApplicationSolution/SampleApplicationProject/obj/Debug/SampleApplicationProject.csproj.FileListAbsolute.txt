@@ -1,0 +1,7 @@
+D:\Data\d drive\Corp\Srushti\L&T\LTI_GET_886\Work\Spl\Day2\SampleApplicationSolution\SampleApplicationProject\bin\Debug\SampleApplicationProject.exe.config
+D:\Data\d drive\Corp\Srushti\L&T\LTI_GET_886\Work\Spl\Day2\SampleApplicationSolution\SampleApplicationProject\bin\Debug\SampleApplicationProject.exe
+D:\Data\d drive\Corp\Srushti\L&T\LTI_GET_886\Work\Spl\Day2\SampleApplicationSolution\SampleApplicationProject\bin\Debug\SampleApplicationProject.pdb
+D:\Data\d drive\Corp\Srushti\L&T\LTI_GET_886\Work\Spl\Day2\SampleApplicationSolution\SampleApplicationProject\obj\Debug\SampleApplicationProject.csprojAssemblyReference.cache
+D:\Data\d drive\Corp\Srushti\L&T\LTI_GET_886\Work\Spl\Day2\SampleApplicationSolution\SampleApplicationProject\obj\Debug\SampleApplicationProject.csproj.CoreCompileInputs.cache
+D:\Data\d drive\Corp\Srushti\L&T\LTI_GET_886\Work\Spl\Day2\SampleApplicationSolution\SampleApplicationProject\obj\Debug\SampleApplicationProject.exe
+D:\Data\d drive\Corp\Srushti\L&T\LTI_GET_886\Work\Spl\Day2\SampleApplicationSolution\SampleApplicationProject\obj\Debug\SampleApplicationProject.pdb
