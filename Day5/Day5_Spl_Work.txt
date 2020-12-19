@@ -1,0 +1,26 @@
+SoC
+
+Multiple Controller
+Controller can have multiple action
+Each action has a view that it has to render
+
+Razor Eng
+
+ActionMethod
+ActionName
+Controller
+View Creation
+ViewData
+ViewBag
+
+View
+ Strongly typed view
+
+Get
+Post
+
+Create
+Read - readAll, readOne
+Update
+Delete
+

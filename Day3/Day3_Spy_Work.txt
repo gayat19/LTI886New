@@ -1,0 +1,54 @@
+Using the link bellow 
+
+https://www.oracle.com/in/java/technologies/javase/javase-jdk8-downloads.html
+
+Go with installation flow
+
+Once installation is complete
+
+Open a cmd prompt and key in 
+javac 
+it should respond with the possible options. 
+
+You have installed java now
+
+
+-----------------------------------
+
+
+Download the jenkins.war
+
+Create a folder with name "Jenkins" in c:Programfiles
+
+open the cmd prompt form this location
+
+in the cmd prompt
+
+java -jar jenkins.war --httpPort=4545
+
+cdf9abbd14794d95a10bfeb547226345
+
+CI/CD
+in the manage plug in
+install Ms bild plugin 
+
+in the global tool config
+set path for git and ms build
+
+Create a new c# application and push it in to gitHub
+
+Create a new item from jenkins dashboard
+Give a name for the item  
+select freestyle project
+
+defaultmsbuild - custom name given to the msbuild
+
+
+Job - 
+
+  FreeStyle - Automatic steps
+  PipeLine - Step By Step(script - Groovy)
+
+
+
+

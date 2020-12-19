@@ -1,0 +1,30 @@
+﻿@model FirstWebMVCProject.Models.Customer
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowCustomer</title>
+</head>
+<body>
+    @*<div>
+            Customer Id : @ViewBag.customer.Id
+            <br />
+            Customer Name : @ViewBag.customer.Name
+            <br />
+            Customer Phone : @ViewBag.customer.Phone
+        </div>*@
+    <div>
+        Customer Id : @Model.Id
+        <br />
+        Customer Name : @Model.Name
+        <br />
+        Customer Phone : @Model.Phone
+    </div>
+</body>
+</html>

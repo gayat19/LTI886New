@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>WelcomePage</title>
+</head>
+<body>
+    <div>
+        <h1> Welcome @ViewData["customername"]</h1>
+        <h3> Your age is @ViewBag.customerage</h3>
+        @*<p>
+            viewbag data<br />
+            @ViewBag.num2+10
+        </p>
+        <p>
+            viewdata's data<br />
+            @ViewData["num1"]+100
+        </p>*@
+        @foreach (var item in ((IEnumerable<int>)(ViewData["nums"])))
+        {
+            <div>@item</div>
+        }
+        <hr />
+        @foreach (var item in ViewBag.myNums)
+        {
+            <div>@item</div>
+        }
+
+
+    </div>
+</body>
+</html>

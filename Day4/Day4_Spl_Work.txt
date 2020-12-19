@@ -1,0 +1,42 @@
+Multiplex management
+
+1) Epic
+     Sprints
+     User Stories
+        Task
+        Test
+        Bug
+3 itr
+
+Customer Module
+  Registration
+  Login
+  Edit Profile
+Admin Module
+  Add Screen
+  Disable Screen
+  Add Show
+  Stop Show
+  Add Admin
+  Add Movie
+  Edit Movie
+Ticket Module
+  Book Ticket
+  Cancel Ticket
+  Display Tickets
+
+
+2) What are the project activities you will do
+Steps for Project development
+Team wise Role    
+
+Update the board
+REq
+Database design
+Split in to modules
+Assign Modules
+FE - Prototype
+BL
+Validations
+Testing
+Integration

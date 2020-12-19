@@ -1,0 +1,14 @@
+Create a new table "Doctor" with id(identity),name and years_of_Exp
+
+create stored procedures for insert,update and delete
+
+update can just update the years_of_Exp
+
+Insert few records in the table
+
+Execute a crud from MVC to the table using ADO.NET
+
+Use discon for Get
+Hint- populate the data in the list and display
+Connected for insert,update and delete
+Hint - Use the model object to get the data and pass it to the stored procedure as paramenter
