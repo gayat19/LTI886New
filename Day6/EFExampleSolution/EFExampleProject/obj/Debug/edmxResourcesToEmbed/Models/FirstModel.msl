@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbTrainingModelStoreContainer" CdmEntityContainer="dbTrainingEntities">
+    <FunctionImportMapping FunctionImportName="proc_Delete_Doctor" FunctionName="dbTrainingModel.Store.proc_Delete_Doctor" />
+    <FunctionImportMapping FunctionImportName="proc_Insert_Doctor" FunctionName="dbTrainingModel.Store.proc_Insert_Doctor" />
+    <FunctionImportMapping FunctionImportName="proc_Update_Doctor_Exp" FunctionName="dbTrainingModel.Store.proc_Update_Doctor_Exp" />
+    <EntitySetMapping Name="tbl_Doctor">
+      <EntityTypeMapping TypeName="dbTrainingModel.tbl_Doctor">
+        <MappingFragment StoreEntitySet="tbl_Doctor">
+          <ScalarProperty Name="years_of_exp" ColumnName="years_of_exp" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Patient">
+      <EntityTypeMapping TypeName="dbTrainingModel.tbl_Patient">
+        <MappingFragment StoreEntitySet="tbl_Patient">
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_appointment">
+      <EntityTypeMapping TypeName="dbTrainingModel.tbl_appointment">
+        <MappingFragment StoreEntitySet="tbl_appointment">
+          <ScalarProperty Name="app_time" ColumnName="app_time" />
+          <ScalarProperty Name="app_date" ColumnName="app_date" />
+          <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+          <ScalarProperty Name="docid" ColumnName="docid" />
+          <ScalarProperty Name="app_id" ColumnName="app_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

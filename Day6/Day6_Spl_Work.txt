@@ -1,0 +1,28 @@
+ORM - Object Realtional Mapping
+
+Tables       -- Object
+Attributes   -- Properties
+
+Features
+Mapping 
+ Entity mapped to POCO(Plain Old CLR Object)
+Change Tracking
+ Save
+Cross-Platform
+Enables use of LINQ-
+  Supports Querying
+Transaction Support
+Optimistc Concurrency
+
+
+States for entity
+Added
+Modified
+Deleted
+Unchanged
+Detached
+
+View Model
+
+SelectList
+

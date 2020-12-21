@@ -1,0 +1,59 @@
+﻿@model IEnumerable<EFExampleProject.Models.tbl_appointment>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.app_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.app_time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_Doctor.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_Patient.name)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.app_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.app_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tbl_Doctor.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tbl_Patient.name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.app_id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.app_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.app_id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

@@ -1,0 +1,17 @@
+Create a database dpShoppingDay7
+
+Create a table user in the database with
+username
+password
+name
+email 
+phone
+
+Create a view which will allow the user to login
+
+Create another view which will allow the user to register
+Also allow the user to edit the email and phone numbers
+
+note->there is no need to link the register and login.
+But from the list of user allow user to edit the user details.
+

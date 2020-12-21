@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbTrainingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_appointment">
+          <Key>
+            <PropertyRef Name="app_id" />
+          </Key>
+          <Property Name="app_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="docid" Type="int" />
+          <Property Name="patient_id" Type="int" />
+          <Property Name="app_date" Type="date" />
+          <Property Name="app_time" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Doctor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="20" />
+          <Property Name="years_of_exp" Type="float" />
+        </EntityType>
+        <EntityType Name="tbl_Patient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="20" />
+          <Property Name="phone" Type="varchar" MaxLength="20" />
+          <Property Name="remarks" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK__tbl_appoi__docid__30F848ED">
+          <End Role="tbl_Doctor" Type="Self.tbl_Doctor" Multiplicity="0..1" />
+          <End Role="tbl_appointment" Type="Self.tbl_appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Doctor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_appointment">
+              <PropertyRef Name="docid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_appoi__patie__31EC6D26">
+          <End Role="tbl_Patient" Type="Self.tbl_Patient" Multiplicity="0..1" />
+          <End Role="tbl_appointment" Type="Self.tbl_appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Patient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_appointment">
+              <PropertyRef Name="patient_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="proc_Delete_Doctor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="did" Type="int" Mode="In" />
+        </Function>
+        <Function Name="proc_Insert_Doctor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dname" Type="varchar" Mode="In" />
+          <Parameter Name="exp" Type="float" Mode="In" />
+        </Function>
+        <Function Name="proc_Update_Doctor_Exp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="did" Type="int" Mode="In" />
+          <Parameter Name="exp" Type="float" Mode="In" />
+        </Function>
+        <EntityContainer Name="dbTrainingModelStoreContainer">
+          <EntitySet Name="tbl_appointment" EntityType="Self.tbl_appointment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Doctor" EntityType="Self.tbl_Doctor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Patient" EntityType="Self.tbl_Patient" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tbl_appoi__docid__30F848ED" Association="Self.FK__tbl_appoi__docid__30F848ED">
+            <End Role="tbl_Doctor" EntitySet="tbl_Doctor" />
+            <End Role="tbl_appointment" EntitySet="tbl_appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_appoi__patie__31EC6D26" Association="Self.FK__tbl_appoi__patie__31EC6D26">
+            <End Role="tbl_Patient" EntitySet="tbl_Patient" />
+            <End Role="tbl_appointment" EntitySet="tbl_appointment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbTrainingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dbTrainingEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="proc_Delete_Doctor">
+          <Parameter Name="did" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="proc_Insert_Doctor">
+            <Parameter Name="dname" Mode="In" Type="String" />
+            <Parameter Name="exp" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="proc_Update_Doctor_Exp">
+            <Parameter Name="did" Mode="In" Type="Int32" />
+            <Parameter Name="exp" Mode="In" Type="Double" />
+          </FunctionImport>
+          <EntitySet Name="tbl_Doctor" EntityType="dbTrainingModel.tbl_Doctor" />
+          <EntitySet Name="tbl_Patient" EntityType="dbTrainingModel.tbl_Patient" />
+          <EntitySet Name="tbl_appointment" EntityType="dbTrainingModel.tbl_appointment" />
+          <AssociationSet Name="FK__tbl_appoi__docid__30F848ED" Association="dbTrainingModel.FK__tbl_appoi__docid__30F848ED">
+            <End Role="tbl_Doctor" EntitySet="tbl_Doctor" />
+            <End Role="tbl_appointment" EntitySet="tbl_appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_appoi__patie__31EC6D26" Association="dbTrainingModel.FK__tbl_appoi__patie__31EC6D26">
+            <End Role="tbl_Patient" EntitySet="tbl_Patient" />
+            <End Role="tbl_appointment" EntitySet="tbl_appointment" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tbl_Doctor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="years_of_exp" Type="Double" />
+          <NavigationProperty Name="tbl_appointment" Relationship="dbTrainingModel.FK__tbl_appoi__docid__30F848ED" FromRole="tbl_Doctor" ToRole="tbl_appointment" />
+        </EntityType>
+        <EntityType Name="tbl_Patient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_appointment" Relationship="dbTrainingModel.FK__tbl_appoi__patie__31EC6D26" FromRole="tbl_Patient" ToRole="tbl_appointment" />
+        </EntityType>
+        <EntityType Name="tbl_appointment">
+          <Key>
+            <PropertyRef Name="app_id" />
+          </Key>
+          <Property Name="app_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="docid" Type="Int32" />
+          <Property Name="patient_id" Type="Int32" />
+          <Property Name="app_date" Type="DateTime" Precision="0" />
+          <Property Name="app_time" Type="Int32" />
+          <NavigationProperty Name="tbl_Doctor" Relationship="dbTrainingModel.FK__tbl_appoi__docid__30F848ED" FromRole="tbl_appointment" ToRole="tbl_Doctor" />
+          <NavigationProperty Name="tbl_Patient" Relationship="dbTrainingModel.FK__tbl_appoi__patie__31EC6D26" FromRole="tbl_appointment" ToRole="tbl_Patient" />
+        </EntityType>
+        <Association Name="FK__tbl_appoi__docid__30F848ED">
+          <End Type="dbTrainingModel.tbl_Doctor" Role="tbl_Doctor" Multiplicity="0..1" />
+          <End Type="dbTrainingModel.tbl_appointment" Role="tbl_appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Doctor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_appointment">
+              <PropertyRef Name="docid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_appoi__patie__31EC6D26">
+          <End Type="dbTrainingModel.tbl_Patient" Role="tbl_Patient" Multiplicity="0..1" />
+          <End Type="dbTrainingModel.tbl_appointment" Role="tbl_appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Patient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_appointment">
+              <PropertyRef Name="patient_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbTrainingModelStoreContainer" CdmEntityContainer="dbTrainingEntities">
+          <FunctionImportMapping FunctionImportName="proc_Delete_Doctor" FunctionName="dbTrainingModel.Store.proc_Delete_Doctor" />
+          <FunctionImportMapping FunctionImportName="proc_Insert_Doctor" FunctionName="dbTrainingModel.Store.proc_Insert_Doctor" />
+          <FunctionImportMapping FunctionImportName="proc_Update_Doctor_Exp" FunctionName="dbTrainingModel.Store.proc_Update_Doctor_Exp" />
+          <EntitySetMapping Name="tbl_Doctor">
+            <EntityTypeMapping TypeName="dbTrainingModel.tbl_Doctor">
+              <MappingFragment StoreEntitySet="tbl_Doctor">
+                <ScalarProperty Name="years_of_exp" ColumnName="years_of_exp" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Patient">
+            <EntityTypeMapping TypeName="dbTrainingModel.tbl_Patient">
+              <MappingFragment StoreEntitySet="tbl_Patient">
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_appointment">
+            <EntityTypeMapping TypeName="dbTrainingModel.tbl_appointment">
+              <MappingFragment StoreEntitySet="tbl_appointment">
+                <ScalarProperty Name="app_time" ColumnName="app_time" />
+                <ScalarProperty Name="app_date" ColumnName="app_date" />
+                <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+                <ScalarProperty Name="docid" ColumnName="docid" />
+                <ScalarProperty Name="app_id" ColumnName="app_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

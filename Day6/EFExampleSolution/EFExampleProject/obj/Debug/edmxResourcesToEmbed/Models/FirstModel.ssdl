@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbTrainingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_appointment">
+    <Key>
+      <PropertyRef Name="app_id" />
+    </Key>
+    <Property Name="app_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="docid" Type="int" />
+    <Property Name="patient_id" Type="int" />
+    <Property Name="app_date" Type="date" />
+    <Property Name="app_time" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Doctor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="20" />
+    <Property Name="years_of_exp" Type="float" />
+  </EntityType>
+  <EntityType Name="tbl_Patient">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="20" />
+    <Property Name="phone" Type="varchar" MaxLength="20" />
+    <Property Name="remarks" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK__tbl_appoi__docid__30F848ED">
+    <End Role="tbl_Doctor" Type="Self.tbl_Doctor" Multiplicity="0..1" />
+    <End Role="tbl_appointment" Type="Self.tbl_appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Doctor">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_appointment">
+        <PropertyRef Name="docid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_appoi__patie__31EC6D26">
+    <End Role="tbl_Patient" Type="Self.tbl_Patient" Multiplicity="0..1" />
+    <End Role="tbl_appointment" Type="Self.tbl_appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Patient">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_appointment">
+        <PropertyRef Name="patient_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="proc_Delete_Doctor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="did" Type="int" Mode="In" />
+  </Function>
+  <Function Name="proc_Insert_Doctor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dname" Type="varchar" Mode="In" />
+    <Parameter Name="exp" Type="float" Mode="In" />
+  </Function>
+  <Function Name="proc_Update_Doctor_Exp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="did" Type="int" Mode="In" />
+    <Parameter Name="exp" Type="float" Mode="In" />
+  </Function>
+  <EntityContainer Name="dbTrainingModelStoreContainer">
+    <EntitySet Name="tbl_appointment" EntityType="Self.tbl_appointment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Doctor" EntityType="Self.tbl_Doctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Patient" EntityType="Self.tbl_Patient" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tbl_appoi__docid__30F848ED" Association="Self.FK__tbl_appoi__docid__30F848ED">
+      <End Role="tbl_Doctor" EntitySet="tbl_Doctor" />
+      <End Role="tbl_appointment" EntitySet="tbl_appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_appoi__patie__31EC6D26" Association="Self.FK__tbl_appoi__patie__31EC6D26">
+      <End Role="tbl_Patient" EntitySet="tbl_Patient" />
+      <End Role="tbl_appointment" EntitySet="tbl_appointment" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
