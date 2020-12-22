@@ -1,0 +1,29 @@
+Tempdata
+  keep
+  peek
+
+Stored Procedures and Results Vs. ViewModel
+
+DatabaseFirst
+   Tables - > Model Classes
+
+CodeFirst
+  Model Classes -> Tables
+
+Table per Hirar
+Table per Type
+Table per Concrete Class
+
+One to One 
+One To Many
+Many to Many
+
+dbContext Class is very Important
+
+Creating the model class
+Install the EF using nuget
+Create the database context class
+Add the connection string
+Execute the command
+
+YOu can find the table in the database with the data

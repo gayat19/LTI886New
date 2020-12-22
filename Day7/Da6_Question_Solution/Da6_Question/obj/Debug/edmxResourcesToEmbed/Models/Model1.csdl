@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbTrainingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_user">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="dbTrainingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_user" EntityType="Self.tbl_user" />
+    <EntitySet Name="tbl_appointment" EntityType="dbTrainingModel.tbl_appointment" />
+    <EntitySet Name="tbl_Doctor" EntityType="dbTrainingModel.tbl_Doctor" />
+    <EntitySet Name="tbl_Patient" EntityType="dbTrainingModel.tbl_Patient" />
+    <AssociationSet Name="FK__tbl_appoi__docid__30F848ED" Association="dbTrainingModel.FK__tbl_appoi__docid__30F848ED">
+      <End Role="tbl_Doctor" EntitySet="tbl_Doctor" />
+      <End Role="tbl_appointment" EntitySet="tbl_appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_appoi__patie__31EC6D26" Association="dbTrainingModel.FK__tbl_appoi__patie__31EC6D26">
+      <End Role="tbl_Patient" EntitySet="tbl_Patient" />
+      <End Role="tbl_appointment" EntitySet="tbl_appointment" />
+    </AssociationSet>
+    <FunctionImport Name="proc_GetDoctorWisePatienst" ReturnType="Collection(dbTrainingModel.proc_GetDoctorWisePatienst_Result)" />
+  </EntityContainer>
+  <EntityType Name="tbl_appointment">
+    <Key>
+      <PropertyRef Name="app_id" />
+    </Key>
+    <Property Name="app_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="docid" Type="Int32" />
+    <Property Name="patient_id" Type="Int32" />
+    <Property Name="app_date" Type="DateTime" Precision="0" />
+    <Property Name="app_time" Type="Int32" />
+    <NavigationProperty Name="tbl_Doctor" Relationship="dbTrainingModel.FK__tbl_appoi__docid__30F848ED" FromRole="tbl_appointment" ToRole="tbl_Doctor" />
+    <NavigationProperty Name="tbl_Patient" Relationship="dbTrainingModel.FK__tbl_appoi__patie__31EC6D26" FromRole="tbl_appointment" ToRole="tbl_Patient" />
+  </EntityType>
+  <EntityType Name="tbl_Doctor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="years_of_exp" Type="Double" />
+    <NavigationProperty Name="tbl_appointment" Relationship="dbTrainingModel.FK__tbl_appoi__docid__30F848ED" FromRole="tbl_Doctor" ToRole="tbl_appointment" />
+  </EntityType>
+  <EntityType Name="tbl_Patient">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_appointment" Relationship="dbTrainingModel.FK__tbl_appoi__patie__31EC6D26" FromRole="tbl_Patient" ToRole="tbl_appointment" />
+  </EntityType>
+  <Association Name="FK__tbl_appoi__docid__30F848ED">
+    <End Type="dbTrainingModel.tbl_Doctor" Role="tbl_Doctor" Multiplicity="0..1" />
+    <End Type="dbTrainingModel.tbl_appointment" Role="tbl_appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Doctor">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_appointment">
+        <PropertyRef Name="docid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_appoi__patie__31EC6D26">
+    <End Type="dbTrainingModel.tbl_Patient" Role="tbl_Patient" Multiplicity="0..1" />
+    <End Type="dbTrainingModel.tbl_appointment" Role="tbl_appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Patient">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_appointment">
+        <PropertyRef Name="patient_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="proc_GetDoctorWisePatienst_Result">
+    <Property Type="Int32" Name="doctor_id" Nullable="true" />
+    <Property Type="String" Name="doctor_name" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="patient_name" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="patient_phone" Nullable="true" MaxLength="20" />
+  </ComplexType>
+</Schema>

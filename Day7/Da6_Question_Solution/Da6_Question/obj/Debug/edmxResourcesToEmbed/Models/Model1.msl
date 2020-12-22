@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbTrainingModelStoreContainer" CdmEntityContainer="dbTrainingEntities">
+    <EntitySetMapping Name="tbl_user">
+      <EntityTypeMapping TypeName="dbTrainingModel.tbl_user">
+        <MappingFragment StoreEntitySet="tbl_user">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_appointment">
+      <EntityTypeMapping TypeName="dbTrainingModel.tbl_appointment">
+        <MappingFragment StoreEntitySet="tbl_appointment">
+          <ScalarProperty Name="app_time" ColumnName="app_time" />
+          <ScalarProperty Name="app_date" ColumnName="app_date" />
+          <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+          <ScalarProperty Name="docid" ColumnName="docid" />
+          <ScalarProperty Name="app_id" ColumnName="app_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Doctor">
+      <EntityTypeMapping TypeName="dbTrainingModel.tbl_Doctor">
+        <MappingFragment StoreEntitySet="tbl_Doctor">
+          <ScalarProperty Name="years_of_exp" ColumnName="years_of_exp" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Patient">
+      <EntityTypeMapping TypeName="dbTrainingModel.tbl_Patient">
+        <MappingFragment StoreEntitySet="tbl_Patient">
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="proc_GetDoctorWisePatienst" FunctionName="dbTrainingModel.Store.proc_GetDoctorWisePatienst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbTrainingModel.proc_GetDoctorWisePatienst_Result">
+          <ScalarProperty Name="doctor_id" ColumnName="doctor_id" />
+          <ScalarProperty Name="doctor_name" ColumnName="doctor_name" />
+          <ScalarProperty Name="patient_name" ColumnName="patient_name" />
+          <ScalarProperty Name="patient_phone" ColumnName="patient_phone" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
