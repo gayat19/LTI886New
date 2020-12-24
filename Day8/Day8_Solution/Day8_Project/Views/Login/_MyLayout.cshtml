@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_MyLayout</title>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @Html.ActionLink("Doctor Home", "Index", "Doctor", new { area = "" }, new { @class = "navbar-brand" })
+                </ul>
+            </div>
+        </div>
+    </div>
+    <h1>Login to continue.....</h1>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

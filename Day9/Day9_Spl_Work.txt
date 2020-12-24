@@ -1,0 +1,9 @@
+Model MetaData
+Lazy Loading
+
+Handle error - Filter
+
+When a doctor logs in 
+he has to see the appoitments that are for him
+Also ensure the application does not break.
+

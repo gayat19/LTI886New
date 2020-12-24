@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbHospitalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblDoctor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="20" />
+          <Property Name="years_of_exp" Type="float" />
+          <Property Name="phone" Type="varchar" MaxLength="20" />
+          <Property Name="username" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tblPatient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="20" />
+          <Property Name="age" Type="int" />
+          <Property Name="phone" Type="varchar" MaxLength="20" />
+          <Property Name="details" Type="text" />
+          <Property Name="status" Type="varchar" MaxLength="10" />
+          <Property Name="username" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="20" />
+          <Property Name="role" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK__tblDoctor__usern__276EDEB3">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblDoctor" Type="Self.tblDoctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="tblDoctor">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblPatien__usern__2B3F6F97">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblPatient" Type="Self.tblPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="tblPatient">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="proc_LoginCheck" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="un" Type="varchar" Mode="In" />
+          <Parameter Name="pass" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="dbHospitalModelStoreContainer">
+          <EntitySet Name="tblDoctor" EntityType="Self.tblDoctor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPatient" EntityType="Self.tblPatient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tblDoctor__usern__276EDEB3" Association="Self.FK__tblDoctor__usern__276EDEB3">
+            <End Role="tblUser" EntitySet="tblUser" />
+            <End Role="tblDoctor" EntitySet="tblDoctor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblPatien__usern__2B3F6F97" Association="Self.FK__tblPatien__usern__2B3F6F97">
+            <End Role="tblUser" EntitySet="tblUser" />
+            <End Role="tblPatient" EntitySet="tblPatient" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbHospitalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblDoctor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="years_of_exp" Type="Double" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK__tblDoctor__usern__276EDEB3" FromRole="tblDoctor" ToRole="tblUser" />
+        </EntityType>
+        <EntityType Name="tblPatient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="age" Type="Int32" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK__tblPatien__usern__2B3F6F97" FromRole="tblPatient" ToRole="tblUser" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="role" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblDoctors" Relationship="Self.FK__tblDoctor__usern__276EDEB3" FromRole="tblUser" ToRole="tblDoctor" />
+          <NavigationProperty Name="tblPatients" Relationship="Self.FK__tblPatien__usern__2B3F6F97" FromRole="tblUser" ToRole="tblPatient" />
+        </EntityType>
+        <Association Name="FK__tblDoctor__usern__276EDEB3">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblDoctor" Type="Self.tblDoctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="tblDoctor">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblPatien__usern__2B3F6F97">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblPatient" Type="Self.tblPatient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="tblPatient">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbHospitalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblDoctors" EntityType="Self.tblDoctor" />
+          <EntitySet Name="tblPatients" EntityType="Self.tblPatient" />
+          <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+          <AssociationSet Name="FK__tblDoctor__usern__276EDEB3" Association="Self.FK__tblDoctor__usern__276EDEB3">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblDoctor" EntitySet="tblDoctors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblPatien__usern__2B3F6F97" Association="Self.FK__tblPatien__usern__2B3F6F97">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblPatient" EntitySet="tblPatients" />
+          </AssociationSet>
+          <FunctionImport Name="proc_LoginCheck" ReturnType="Collection(dbHospitalModel.proc_LoginCheck_Result)">
+            <Parameter Name="un" Mode="In" Type="String" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="proc_LoginCheck_Result">
+          <Property Type="String" Name="username" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="role" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="status" Nullable="true" MaxLength="10" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbHospitalModelStoreContainer" CdmEntityContainer="dbHospitalEntities">
+          <EntitySetMapping Name="tblDoctors">
+            <EntityTypeMapping TypeName="dbHospitalModel.tblDoctor">
+              <MappingFragment StoreEntitySet="tblDoctor">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="years_of_exp" ColumnName="years_of_exp" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="username" ColumnName="username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPatients">
+            <EntityTypeMapping TypeName="dbHospitalModel.tblPatient">
+              <MappingFragment StoreEntitySet="tblPatient">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="details" ColumnName="details" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="username" ColumnName="username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="dbHospitalModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="proc_LoginCheck" FunctionName="dbHospitalModel.Store.proc_LoginCheck">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbHospitalModel.proc_LoginCheck_Result">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

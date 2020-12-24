@@ -1,0 +1,16 @@
+Create an application that will allow user to 
+register
+login
+View Movies
+Book ticket
+View Booked ticket
+
+
+Create the required table and stored procedures
+
+Note:- One movie can be screened in multiple screen
+Every screen will screen only one movie/day
+Bookings can be made only upto 5 seats
+Seat layout not required.
+Ensure the screen is not over booked
+

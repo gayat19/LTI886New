@@ -1,0 +1,19 @@
+Model Validation
+
+New Database dbHospital
+
+New Table
+ tblUser(username,password,role)
+ tblDoctor(id,name,exp,phone)
+ tblPatient(id,name,age,phone,details,status)
+ tblAppoitment(id,date,doctor_id,patient_id,time)
+
+Login
+  username,password -> Validations
+ |
+TempData -> cookies/url -> internally is session ->state management.
+http - > stateless protocol
+ |
+Home
+  Menu - has to be in all the pages ->Layout page
+  
