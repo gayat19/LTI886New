@@ -1,0 +1,14 @@
+<p>updatecustomer works!</p>
+<select #custid (change)="findCustomer(custid)">
+    <option *ngFor="let cust of customers" [value]="cust.id">{{cust.id}}</option>
+</select>
+
+<div *ngIf="customer.id!=0">
+    <label>Customer Name</label>
+    <input type="text" [(ngModel)]="customer.name">
+    <br>
+    <label>Customer Age</label>
+    <input type="text" [(ngModel)]="customer.age">
+    <button (click)="updateCustomerData()">Update Customer Data</button>
+</div>
+

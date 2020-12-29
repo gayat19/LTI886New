@@ -1,0 +1,29 @@
+DESKTOP-1C1EU5R
+
+RESTful API
+Employee
+  GET 		- Get all the employees
+  GET\101	- Get the employee with id 101
+  PUT\101	- Edit the employee with id 101
+  POST		- Create/Insert a new employee
+  DELETE\101	- Delete the employee with id 101
+Employee/101
+
+
+Old way of creating the service
+Method/Fuction is the focus
+GetAllEmployees()
+GetEmployeeById/GetOneEmployee/FetchOneEmployee/FetchEmployeeByID
+
+
+Serialization
+
+
+
+Employee
+Get	- http://localhost:61488/api/Employee
+Delete	- http://localhost:61488/api/Employee/2
+Post	- http://localhost:61488/api/Employee?name=Dimu
+Put	- http://localhost:61488/api/Employee?id=2&name=Changed
+
+CORS

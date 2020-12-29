@@ -1,0 +1,18 @@
+Use the pubs database
+
+User the Employee table for login(Employee id as username and fname as password)
+
+If a employee logs in show the welcome msg through out, until log out
+
+Home page has menu to 
+see all titles
+see all the Authors
+List all the authors in a page. when an author is selected then
+List all the books written by the author
+Make a sale
+
+Employee can see all the customer details(Include the menu for it too) 
+
+Exception and error handling are manditory
+
+Application should not break
