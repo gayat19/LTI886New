@@ -9,6 +9,8 @@ import { CustomerService } from './services/customer.service';
 import { AddcustomerComponent } from './addcustomer/addcustomer.component';
 import { FormsModule } from '@angular/forms';
 import { UpdatecustomerComponent } from './updatecustomer/updatecustomer.component';
+import { UserService } from './services/user.service';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import { UpdatecustomerComponent } from './updatecustomer/updatecustomer.compone
     AppComponent,
     CustomerComponent,
     AddcustomerComponent,
-    UpdatecustomerComponent
+    UpdatecustomerComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,7 @@ import { UpdatecustomerComponent } from './updatecustomer/updatecustomer.compone
     HttpClientModule,
     FormsModule
   ],
-  providers: [CustomerService],
+  providers: [CustomerService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

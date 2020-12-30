@@ -1,0 +1,14 @@
+Use the pubs database
+
+
+Home page has menu to 
+see all titles
+see all the Authors
+List all the authors in a page. when an author is selected then
+List all the books written by the author
+Make a sale
+
+
+Exception and error handling are manditory
+
+Application should not break

@@ -1,0 +1,15 @@
+<p>login works!</p>
+<label>Username</label>
+<input type="text" [(ngModel)]="userLogin.userid">
+<br>
+<label>Password</label>
+<input type="text" [(ngModel)]="userLogin.password">
+<br>
+<button (click)="onLogin()">Login</button>
+
+<div *ngIf="user">
+   Welcome user you are a <mark>{{user.role}}</mark>
+</div>
+<div *ngIf="msg">
+   {{msg}}
+ </div>
