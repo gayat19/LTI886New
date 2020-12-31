@@ -18,6 +18,11 @@ namespace MyFirstAPI.Controllers
         {
             return entities.Customers.ToList();
         }
+        public Customer Get(int id)
+        {
+            Customer customer = entities.Customers.Where(c => c.id == id).FirstOrDefault();
+            return customer;
+        }
 
         public void Post(Customer customer)
         {

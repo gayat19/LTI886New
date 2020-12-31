@@ -5,7 +5,7 @@ import { Customer } from '../models/customer.model';
 @Injectable()
 export class CustomerService{
 
-    constructor(private getHttp:HttpClient,private putHttp:HttpClient){
+    constructor(private getHttp:HttpClient,private putHttp:HttpClient, private getone:HttpClient){
 
     }
     public getAllCustomersFromApi(){
@@ -18,5 +18,8 @@ export class CustomerService{
 
     public updateCustomer(id:number,customer:Customer){
         return this.putHttp.put("http://localhost:61488/api/Customer/"+id,customer);
+    }
+    public getOneCustomersFromApi(id:number){
+        return this.getone.get("http://localhost:61488/api/Customer/"+id);
     }
 }

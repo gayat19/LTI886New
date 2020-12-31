@@ -2,10 +2,12 @@
 
 <div *ngFor="let customer of customers">
     Customer ID: {{customer.id}}
+    <button (click)="showDetails(customer.id)" 
+    class="btn btn-primary">Show details</button>
     <br>
-    Customer Name: {{customer.name}}
+    <!-- Customer Name: {{customer.name}}
     <br>
     Customer Age: {{customer.age}}
-    <br>
+    <br> -->
 
 </div>

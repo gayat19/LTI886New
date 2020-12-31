@@ -1,0 +1,23 @@
+WebApi
+  CRUD
+Parmeters
+Routing
+Atr Routing
+
+
+DevOps
+MVC
+EntityFramework
+WebAPI
+
+get
+get/parameter
+post
+put
+delete
+
+app- module - routes
+customer - HTML - the details button
+customer - ts - the navigate with parameter
+customerdetails - ts - get parameter, call api using the service
+customerdetails - html - display

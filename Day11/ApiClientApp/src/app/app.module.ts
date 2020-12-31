@@ -11,21 +11,30 @@ import { FormsModule } from '@angular/forms';
 import { UpdatecustomerComponent } from './updatecustomer/updatecustomer.component';
 import { UserService } from './services/user.service';
 import { LoginComponent } from './login/login.component';
+import { RouterModule, Routes } from '@angular/router';
+import { CustomerdetailComponent } from './customerdetail/customerdetail.component';
 
-
+var myRoutes:Routes=[
+  {path:"view",component:CustomerComponent},
+  {path:"update",component:UpdatecustomerComponent},
+  {path:"add",component:AddcustomerComponent},
+  {path:"detail/:id",component:CustomerdetailComponent}
+]
 @NgModule({
   declarations: [
     AppComponent,
     CustomerComponent,
     AddcustomerComponent,
     UpdatecustomerComponent,
-    LoginComponent
+    LoginComponent,
+    CustomerdetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(myRoutes)
   ],
   providers: [CustomerService,UserService],
   bootstrap: [AppComponent]
